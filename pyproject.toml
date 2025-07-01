@@ -2,9 +2,15 @@
 name = "KokoroTTS"
 version = "0.1.0"
 description = "A high-quality local text-to-speech generator."
-authors = [{ name = "WilleIshere", email = "your.email@example.com" }]
-requires-python = "==3.12"
+authors = [{ name = "WilleIshere" }]
+requires-python = "==3.12.*"
 readme = "README.md"
+dependencies = [
+    "kokoro>=0.9.4",
+    "nicegui>=2.20.0",
+    "soundfile>=0.13.1",
+    "torch>=2.7.1",
+]
 
 [project.optional-dependencies]
 dev = ["ruff", "black", "pytest"]
