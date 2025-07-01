@@ -81,7 +81,7 @@ python app.py
 
 ### Latest Release
 - **Version**: 0.1.0
-- **Formats**: 
+- **Formats**:
   - **Windows**: Standalone executable (.exe) - no installation required
   - **macOS**: Native application bundle (.app) / executable
   - **Linux**: AppImage (.AppImage) - runs anywhere
@@ -162,7 +162,7 @@ uv pip install -e ".[dev]"
 
 ### Running the Application
 ```bash
-python app.py
+uv run app.py
 ```
 
 ## 📚 Documentation
