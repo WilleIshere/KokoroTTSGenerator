@@ -1,69 +1,51 @@
+# Kokoro TTS Generator
+
 <div align="center">
 
-<img src="https://via.placeholder.com/200x200?text=KokoroTTS" alt="Project Logo" width="200"/>
+![Kokoro TTS Generator](https://via.placeholder.com/150x150?text=KTG)
 
-# 🎙️ Kokoro TTS Generator
+**High Quality Local Text-to-Speech Generator**
 
-<p>
-  <img src="https://img.shields.io/badge/python-3.12-blue.svg" alt="Python 3.12" height="20"/>
-  <img src="https://img.shields.io/badge/Kokoro-0.9.4+-purple.svg" alt="Kokoro TTS" height="20"/>
-  <img src="https://img.shields.io/badge/NiceGUI-2.20.0+-green.svg" alt="NiceGUI" height="20"/>
-  <img src="https://img.shields.io/badge/Quality-High-brightgreen.svg" alt="High Quality" height="20"/>
-  <img src="https://img.shields.io/badge/Speed-Ultra%20Fast-red.svg" alt="Ultra Fast" height="20"/>
-  <img src="https://img.shields.io/badge/license-MIT-orange.svg" alt="License" height="20"/>
-</p>
+[![Python](https://img.shields.io/badge/Python-3.12-blue.svg)](https://python.org)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey.svg)]()
+[![Release](https://img.shields.io/badge/Release-v0.1.0-orange.svg)](https://github.com/WilleIshere/KokoroTTSGenerator/releases)
+[![Speed](https://img.shields.io/badge/Speed-Ultra%20Fast-red.svg)]()
+[![Quality](https://img.shields.io/badge/Quality-High-brightgreen.svg)]()
 
-A modern, elegant, and lightning-fast text-to-speech generator with a clean web interface.  
-Convert text to high-quality, natural-sounding speech with customizable voices locally on your machine in seconds.
+*Generate high-quality speech from text using the powerful Kokoro TTS pipeline with an intuitive web interface.*
 
-<img src="https://via.placeholder.com/800x450?text=Kokoro+TTS+Generator+Demo" alt="Demo" width="800"/>
-
-*High-quality, ultra-fast TTS generation with a beautiful user interface*
+[🚀 Quick Start](#quick-start) • [📦 Download](#download) • [🔧 Build](#building-from-source) • [📚 Documentation](#documentation) • [🤝 Contributing](#contributing)
 
 </div>
 
-<div align="center">
+---
 
 ## ✨ Features
 
-</div>
+### 🎯 **Core Functionality**
+- **High-Quality TTS**: Powered by the advanced Kokoro TTS pipeline
+- **Multiple Voices**: Choose from a wide variety of natural-sounding voices
+- **Customizable Output**: Adjust speech speed and pitch with precision
+- **Batch Processing**: Generate audio from multi-paragraph text input with natural pauses
+- **Real-time Preview**: Instant audio playback within the interface
 
-<div align="center">
+### 🖥️ **User Interface**
+- **Modern Design**: Built with NiceGUI for a sleek, responsive web interface
+- **Intuitive Controls**: Simple, user-friendly experience
+- **Progress Indicators**: Visual feedback for pipeline loading and audio generation
+- **Dark Mode**: Easy on the eyes for extended use
+- **Responsive Layout**: Works across devices and screen sizes
 
-⚡ **Lightning-Fast Processing** - Generate audio in seconds, not minutes
-🔊 **Studio-Quality Output** - Crystal clear, high-fidelity voice generation
-🌐 **Modern Web Interface** - Clean, responsive design built with NiceGUI
-🎤 **Multiple Voice Options** - Choose from a wide variety of natural-sounding voices
-🎛️ **Fine-tuning Controls** - Adjust speed and pitch for perfect output
-📝 **Multi-paragraph Support** - Natural pauses and intonation across paragraphs
-🔒 **Privacy-focused** - All processing happens locally, no data sent to external servers
-💾 **Easy Export** - Preview and download high-quality WAV files
-
-</div>
-
-<div align="center">
-
-## 📸 Screenshots
-
-<img src="https://via.placeholder.com/400x225?text=Main+Interface" alt="Interface" width="400"/>
-<img src="https://via.placeholder.com/400x225?text=Audio+Generation" alt="Generation" width="400"/>
-
-</div>
-
-<div align="center">
+### 💾 **File Management**
+- **WAV Format**: High-quality audio output
+- **Automatic Naming**: Unique identifiers for each generated file
+- **Local Processing**: All data processed on your machine for privacy
+- **Cross-Platform**: Works on Windows, macOS, and Linux
 
 ## 🚀 Quick Start
 
-</div>
-
-### Prerequisites
-
-- Python 3.12
-- pip
-- uv
-
-### Installation
-
+### Running from Source
 ```bash
 # Clone the repository
 git clone https://github.com/WilleIshere/KokoroTTSGenerator.git
@@ -75,134 +57,173 @@ source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 
 # Install dependencies
 pip install -e .
+
+# Run the application
+python app.py
+```
+
+## 📦 Download
+
+### System Requirements
+- **Operating System**: Windows, macOS, or Linux
+- **Python**: 3.12
+- **Memory**: 4GB RAM minimum (8GB recommended)
+- **Storage**: Space for model files and audio output
+- **Internet**: Required for initial model download
+
+### Latest Release
+- **Version**: 0.1.0
+- **Format**: Python package
+
+[⬇️ Download Latest Release](https://github.com/WilleIshere/KokoroTTSGenerator/releases/latest)
+
+## 🎮 Usage
+
+### Getting Started
+1. **Load Pipeline**: Wait for the TTS pipeline to initialize
+2. **Select Voice**: Choose from available voices
+3. **Adjust Parameters**: Set speech speed and pitch using the sliders
+4. **Enter Text**: Type or paste text
+5. **Generate**: Click "Generate Audio" to create audio
+6. **Enjoy**: Preview and download your generated speech
+
+### Voice Options
+The application includes a variety of high-quality voices:
+- **Female Voices**: af_alloy, af_aoede, af_bella, af_jessica, af_kore, af_nicole, af_nova, af_river, af_sarah, af_sky
+- **Male Voices**: am_adam, am_echo, am_eric, am_fenrir, am_liam, am_michael, am_onyx, am_puck, am_santa
+
+### Tips & Tricks
+- **Long Text**: Break long texts into paragraphs for better processing
+- **Punctuation**: Use proper punctuation for natural speech rhythm
+- **Speed & Pitch**: Experiment with different settings for optimal results
+- **Browser Compatibility**: Works best in modern browsers
+
+## 🏗️ Project Structure
+
+This project has been architected with a modular design for maintainability and extensibility:
+
+```
+KokoroTTSGenerator/
+├── 🚀 app.py                    # Main entry point
+├── 📁 src/                      # Source code
+│   ├── gui.py                   # Web interface implementation
+│   └── tts.py                   # TTS pipeline implementation
+├── 📁 final_audio/              # Output directory for generated audio
+├── 📁 temp/                     # Temporary working directory
+└── 📄 pyproject.toml            # Dependencies and project configuration
+```
+
+### Architecture Highlights
+- **Modern Web Interface**: Built with NiceGUI for a responsive experience
+- **Efficient Pipeline**: Fast, high-quality audio generation
+- **Clean Separation**: UI and TTS logic kept separate for maintainability
+- **Python-powered**: Leverages the best Python libraries for TTS
+
+## 🔧 Building from Source
+
+### Prerequisites
+```bash
+# Ensure you have Python 3.12 installed
+python --version
+
+# Clone the repository
+git clone https://github.com/WilleIshere/KokoroTTSGenerator.git
+cd KokoroTTSGenerator
+```
+
+### Development Setup
+```bash
+# Create and activate a virtual environment
+python -m venv .venv
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+
+# Install dependencies
+pip install -e .
+
+# For development tools
+pip install -e ".[dev]"
 ```
 
 ### Running the Application
-
 ```bash
 python app.py
 ```
 
-The web interface will automatically open in your default browser, ready for instant, high-quality audio generation with minimal latency.
+## 📚 Documentation
 
-<div align="center">
+- **Project Structure**: Simple, modular design for easy maintenance
+- **Kokoro TTS**: Leverages the powerful Kokoro TTS pipeline
+- **NiceGUI**: Built with a modern web interface framework
 
-## 🎯 How to Use
+## 🤝 Contributing
 
-</div>
+We welcome contributions! Here's how you can help:
 
-1. **Enter Text** - Type or paste the text you want to convert into the text area
-2. **Select Voice** - Choose your preferred voice from the dropdown menu
-3. **Adjust Parameters** - Fine-tune speed and pitch using the sliders
-4. **Generate** - Click "Generate Audio" and wait for processing to complete
-5. **Preview & Download** - Listen to the high-quality generated audio immediately and download the WAV file
-
-<div align="center">
-
-## 🧩 Project Structure
-
-</div>
-
-```
-KokoroTTSGenerator/
-├── app.py                # Application entry point
-├── src/
-│   ├── gui.py            # NiceGUI interface implementation
-│   └── tts.py            # TTS pipeline functionality
-├── final_audio/          # Output directory for generated audio
-├── temp/                 # Temporary processing directory
-└── pyproject.toml        # Dependencies and project configuration
-```
-
-<div align="center">
-
-## ⚡ Performance
-
-</div>
-
-Kokoro TTS Generator delivers exceptional performance:
-
-- **Generation Speed**: Converts text to speech in mere seconds
-- **High-Quality Output**: Studio-grade audio clarity with natural inflections
-- **Resource Efficient**: Optimized to run smoothly even on modest hardware
-- **Responsive Interface**: No lag between input and audio generation
-
-<div align="center">
-
-## 🛠️ Development
-
-</div>
-
-### Setting Up Development Environment
-
+### Development Setup
 ```bash
+# Fork and clone the repository
+git clone https://github.com/yourusername/KokoroTTSGenerator.git
+cd KokoroTTSGenerator
+
 # Install development dependencies
 pip install -e ".[dev]"
 ```
 
-<div align="center">
+### Ways to Contribute
+- 🐛 **Bug Reports**: Found an issue? Please open an issue
+- 💡 **Feature Requests**: Have an idea? We'd love to hear it
+- 🔧 **Code Contributions**: Submit a pull request
+- 📚 **Documentation**: Help improve our docs
 
-### Tech Stack
+### Development Guidelines
+- Follow PEP 8 style guidelines
+- Add tests for new features
+- Update documentation for changes
+- Ensure cross-platform compatibility
 
-</div>
+## 🛠️ Technologies
 
-<div align="center">
+- **Frontend**: NiceGUI (Python web interface framework)
+- **TTS Engine**: Kokoro TTS pipeline
+- **Audio**: soundfile, numpy
+- **Dependencies**: kokoro, nicegui, torch, soundfile
 
-**[Kokoro TTS](https://github.com/zzmp/Kokoro)** - High-quality, ultra-fast text-to-speech engine
-**[NiceGUI](https://nicegui.io/)** - Python UI framework for building web interfaces
-**[SoundFile](https://pysoundfile.readthedocs.io/)** - Audio processing library
-**[PyTorch](https://pytorch.org/)** - Deep learning framework powering the TTS models
-
-</div>
-
-<div align="center">
-
-## 📋 Roadmap
-
-</div>
-
-<div align="center">
-
-- [ ] Add batch processing support for even faster workflow
-- [ ] Implement additional voice customization options for higher quality
-- [ ] Create export options for different audio formats
-- [ ] Add language support beyond English
-- [ ] Develop advanced audio post-processing options for studio-quality output
-
-</div>
-
-<div align="center">
-
-## 🤝 Contributing
-
-</div>
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-<div align="center">
-
-## 📄 License
-
-</div>
+## 📝 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
+## 🙏 Acknowledgments
+
+- **Kokoro TTS**: Amazing TTS pipeline that powers this application
+- **NiceGUI**: Beautiful modern web interface framework
+- **Python Community**: For the incredible ecosystem of libraries
+
+## 📞 Support
+
+### Getting Help
+- 📖 **Documentation**: Check our comprehensive docs
+- 🐛 **Issues**: Report bugs or request features on GitHub
+- 💬 **Discussions**: Community Q&A and general discussion
+
+### Common Issues
+- **First Run Slow**: Initial pipeline loading downloads models and may take a few minutes
+- **Memory Usage**: TTS models require significant RAM; 8GB recommended for optimal performance
+
+## 🔄 Version History
+
+### v0.1.0 (Latest)
+- ✨ Initial release with core functionality
+- 🎯 Multiple voice options
+- 🎛️ Speed and pitch controls
+- 🎮 Web-based user interface
+- 🔊 High-quality audio output
+
+---
+
 <div align="center">
 
-## 👤 Author
+**Made with ❤️ by WilleIshere**
 
-**WilleIshere** - [GitHub Profile](https://github.com/WilleIshere)
-
-## 🙏 Acknowledgements
-
-**[Kokoro TTS](https://github.com/zzmp/Kokoro)** - Core high-performance text-to-speech technology
-**[NiceGUI](https://nicegui.io/)** - Elegant web interface framework
-All open-source contributors who make projects like this possible
+[⭐ Star this repo](https://github.com/WilleIshere/KokoroTTSGenerator) • [🍴 Fork it](https://github.com/WilleIshere/KokoroTTSGenerator/fork) • [📝 Report Issues](https://github.com/WilleIshere/KokoroTTSGenerator/issues)
 
 </div>
