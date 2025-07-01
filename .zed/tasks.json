@@ -1,0 +1,8 @@
+[
+  {
+    "label": "Run KokoroTTSGenerator",
+    "command": "uv venv && uv sync && uv run kokoro_tts_generator",
+    "type": "shell",
+    "group": "Run"
+  }
+]

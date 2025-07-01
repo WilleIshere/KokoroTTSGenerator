@@ -1,0 +1,10 @@
+[project]
+name = "KokoroTTS"
+version = "0.1.0"
+description = "A high-quality local text-to-speech generator."
+authors = [{ name = "WilleIshere", email = "your.email@example.com" }]
+requires-python = "==3.12"
+readme = "README.md"
+
+[project.optional-dependencies]
+dev = ["ruff", "black", "pytest"]

@@ -1,0 +1,10 @@
+[
+  {
+    "key": "ctrl+r",
+    "command": "Run KokoroTTSGenerator",
+    "args": {
+      "name": "Run KokoroTTSGenerator"
+    },
+    "when": "editorTextFocus"
+  }
+]
