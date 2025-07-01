@@ -1,0 +1,17 @@
+HOW TO RUN KOKORO TTS GENERATOR ON WINDOWS
+
+1. Extract the ZIP file you received to a folder of your choice.
+
+2. Open the extracted folder and double-click on "KokoroTTSGenerator.exe" to start the application.
+
+3. On first launch, the app will open in your default web browser. It may take a few minutes to set up the TTS models—please be patient.
+
+4. Enter your text, select a voice, adjust speed and pitch as desired, then click "Generate" to create speech audio.
+
+Tips:
+- If you see a Windows Defender SmartScreen warning, click "More info" and then "Run anyway" to proceed.
+- All processing is local—no internet is required after the first run.
+- For best results, keep all files from the ZIP in the same folder.
+- If you encounter issues, try running the app as Administrator (right-click > "Run as administrator").
+
+Thank you for using Kokoro TTS Generator!

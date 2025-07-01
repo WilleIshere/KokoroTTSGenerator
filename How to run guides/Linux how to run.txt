@@ -1,0 +1,24 @@
+HOW TO RUN KOKORO TTS GENERATOR ON LINUX
+
+1. If you received a ZIP file, extract it to a folder of your choice.
+
+2. Make the AppImage executable:
+   Open a terminal in the folder where you extracted the file and run:
+   chmod +x KokoroTTSGenerator.AppImage
+
+3. Run the application:
+   - Double-click the "KokoroTTSGenerator.AppImage" file in your file manager
+     OR
+   - Run the following command in your terminal:
+     ./KokoroTTSGenerator.AppImage
+
+4. On first launch, the app will open in your default web browser. It may take a few minutes to set up the TTS models—please be patient.
+
+5. Enter your text, select a voice, adjust speed and pitch as desired, then click "Generate" to create speech audio.
+
+Tips:
+- All processing is local—no internet is required after the first run.
+- If the app does not launch, ensure you have permissions to run AppImages and that your system supports FUSE/AppImage.
+- For troubleshooting, run the AppImage from the terminal to view any error messages.
+
+Thank you for using Kokoro TTS Generator!
