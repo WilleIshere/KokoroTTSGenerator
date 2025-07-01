@@ -329,7 +329,7 @@ class App():
                 self.voice_label = ui.label('Voice:').classes('mr-2 text-blue-200 font-semibold')
                 self.voice_select = ui.select(
                     self.voices,
-                    value=self.voices[0] if self.voices else None
+                    value=self.voices[1] if self.voices else None
                 ).classes(
                     'w-44 bg-blue-950/80 text-blue-300 border-2 border-blue-700 focus:border-blue-400 rounded-lg shadow-inner transition-all'
                 ).props('outlined dense color="blue"')
