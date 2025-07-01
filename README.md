@@ -9,7 +9,7 @@
 [![Python](https://img.shields.io/badge/Python-3.12-blue.svg)](https://python.org)
 [![UV](https://img.shields.io/badge/UV-Package%20Manager-blueviolet.svg)](https://github.com/astral-sh/uv)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey.svg)]()
+[![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux-lightgrey.svg)]()
 [![Release](https://img.shields.io/badge/Release-v0.1.0-orange.svg)](https://github.com/WilleIshere/KokoroTTSGenerator/releases)
 [![Speed](https://img.shields.io/badge/Speed-Ultra%20Fast-red.svg)]()
 [![Quality](https://img.shields.io/badge/Quality-High-brightgreen.svg)]()
@@ -42,7 +42,7 @@
 - **WAV Format**: High-quality audio output
 - **Automatic Naming**: Unique identifiers for each generated file
 - **Local Processing**: All data processed on your machine for privacy
-- **Cross-Platform**: Works on Windows, macOS, and Linux
+- **Cross-Platform**: Works on Windows and Linux
 
 ## 🚀 Quick Start
 
@@ -51,7 +51,6 @@
 2. Extract the downloaded archive (if applicable)
 3. Run the application:
    - **Windows**: Double-click the `.exe` file
-   - **macOS**: Open the `.app` application or run the executable
    - **Linux**: Make the AppImage executable (`chmod +x KokoroTTSGenerator.AppImage`) and run it
 4. Wait for the TTS pipeline to initialize on first run (may take a few minutes)
 
@@ -73,7 +72,7 @@ python app.py
 ## 📦 Download
 
 ### System Requirements
-- **Operating System**: Windows 10/11, macOS 10.14+, or Linux
+- **Operating System**: Windows 10/11 or Linux
 - **Memory**: 4GB RAM minimum (8GB recommended)
 - **Storage**: 2GB+ free space for model files and audio output
 - **Internet**: Required for initial model download
@@ -83,7 +82,7 @@ python app.py
 - **Version**: 0.1.0
 - **Formats**:
   - **Windows**: Standalone executable (.exe) - no installation required
-  - **macOS**: Native application bundle (.app) / executable
+
   - **Linux**: AppImage (.AppImage) - runs anywhere
   - **Source**: Python package (requires Python 3.12 & UV)
 - **Size**: ~300MB (includes all dependencies and runtime)
@@ -208,7 +207,7 @@ uv pip install -e ".[dev]"
 - **Audio**: soundfile, numpy
 - **Package Management**: UV (Fast, reliable Python package manager)
 - **Dependencies**: kokoro, nicegui, torch, soundfile
-- **Distribution**: Standalone executables for all platforms
+- **Distribution**: Standalone executables for Windows and Linux
 
 ## 📝 License
 
@@ -231,7 +230,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **First Run Slow**: Initial pipeline loading downloads models and may take a few minutes
 - **Memory Usage**: TTS models require significant RAM; 8GB recommended for optimal performance
 - **Antivirus Warnings**: Some antivirus software may flag compiled executables; these are false positives
-- **macOS Security**: On macOS, you may need to right-click and select "Open" the first time
 - **Linux Permissions**: On Linux, remember to make AppImage files executable before running
 
 ## 🔄 Version History
@@ -242,7 +240,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - 🎛️ Speed and pitch controls
 - 🎮 Web-based user interface
 - 🔊 High-quality audio output
-- 📦 Compiled versions for Windows, macOS, and Linux
+- 📦 Compiled versions for Windows and Linux
 
 ---
 
