@@ -1,0 +1,1 @@
+This is just a file that makes sure the folder 'final_audio' gets added to git
