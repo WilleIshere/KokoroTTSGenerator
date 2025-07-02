@@ -3,16 +3,24 @@ import shutil
 import soundfile as sf
 import numpy as np
 import uuid
+import logging
+
+# Set up logging for this module
+logger = logging.getLogger(__name__)
 
 class Pipeline:
     def __init__(self):
         self.pipeline = None
 
     def load(self):
+        logger.info("Loading TTS pipeline...")
         from kokoro import KPipeline
         self.pipeline = KPipeline(lang_code='a')
+        logger.info("TTS pipeline loaded.")
+
 
     def generate(self, text, voice, speed, pitch):
+        logger.info(f"Generating audio: text='{text[:30]}...', voice={voice}, speed={speed}, pitch={pitch}")
         temp_dir = 'temp'
         final_dir = 'final_audio'
 

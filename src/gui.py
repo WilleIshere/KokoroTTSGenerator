@@ -1,8 +1,13 @@
+import logging
 from src.tts import Pipeline
+
+# Set up logging for this module
+logger = logging.getLogger(__name__)
 
 class App():
     def __init__(self):
         self.pipeline = None
+        logger.info("App initialized.")
 
         from nicegui import ui
         import asyncio
@@ -18,6 +23,7 @@ class App():
         # Refined color theme classes
         self.nightly_primary = 'blue-400'
         self.nightly_accent = 'blue-300'
+        logger.info("NiceGUI UI and static files configured.")
         self.nightly_bg = 'bg-gray-950'
         self.nightly_card = 'bg-gray-900'
         self.nightly_text = 'text-blue-400'
@@ -288,7 +294,7 @@ class App():
         }
         </style>
         """)
-        self.ui.run()
+        self.ui.run(reload=False, show=True)
 
     def construct_ui(self):
         ui = self.ui  # Local alias for readability
