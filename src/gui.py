@@ -66,155 +66,36 @@ class App():
             ]
 
         # --- Begin: Themed background ---
-        # A fixed SVG background using only the app's blue and gray palette, with subtle animated gradients and geometric shapes
+        # Lightweight static SVG background for performance and style
         self.bg_html = self.ui.html(
             '''
             <svg id="kokoro-bg" style="position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:-1;pointer-events:none;" viewBox="0 0 1920 1080" preserveAspectRatio="none">
                 <defs>
-                    <!-- Main radial gradient for background -->
                     <radialGradient id="mainBg" cx="60%" cy="40%" r="1.2">
-                        <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.22">
-                            <animate attributeName="stop-opacity" values="0.22;0.32;0.22" dur="10s" repeatCount="indefinite"/>
-                        </stop>
+                        <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.22"/>
                         <stop offset="60%" stop-color="#1e293b" stop-opacity="0.98"/>
                         <stop offset="100%" stop-color="#0a101a" stop-opacity="1"/>
                     </radialGradient>
-                    <!-- Blue accent gradient for geometric shapes -->
                     <linearGradient id="blueAccent" x1="0" y1="0" x2="1" y2="1">
                         <stop offset="0%" stop-color="#60a5fa" stop-opacity="0.13"/>
                         <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.07"/>
                     </linearGradient>
-                    <!-- Gray accent gradient for geometric shapes -->
                     <linearGradient id="grayAccent" x1="1" y1="0" x2="0" y2="1">
                         <stop offset="0%" stop-color="#64748b" stop-opacity="0.07"/>
                         <stop offset="100%" stop-color="#1e293b" stop-opacity="0.10"/>
                     </linearGradient>
-                    <!-- Aurora gradient for animated overlay -->
-                    <linearGradient id="aurora1" x1="0" y1="0" x2="1" y2="1">
-                        <stop offset="0%" stop-color="#a5b4fc" stop-opacity="0.13"/>
-                        <stop offset="50%" stop-color="#38bdf8" stop-opacity="0.10"/>
-                        <stop offset="100%" stop-color="#818cf8" stop-opacity="0.13"/>
-                    </linearGradient>
-                    <linearGradient id="aurora2" x1="1" y1="0" x2="0" y2="1">
-                        <stop offset="0%" stop-color="#f472b6" stop-opacity="0.10"/>
-                        <stop offset="100%" stop-color="#38bdf8" stop-opacity="0.08"/>
-                    </linearGradient>
-                    <filter id="blur1" x="-20%" y="-20%" width="140%" height="140%">
-                        <feGaussianBlur stdDeviation="60"/>
-                    </filter>
-                    <filter id="blur2" x="-20%" y="-20%" width="140%" height="140%">
-                        <feGaussianBlur stdDeviation="90"/>
-                    </filter>
-                    <filter id="blurAurora" x="-30%" y="-30%" width="160%" height="160%">
-                        <feGaussianBlur stdDeviation="120"/>
-                    </filter>
                 </defs>
                 <!-- Main background -->
                 <rect width="1920" height="1080" fill="url(#mainBg)"/>
                 <!-- Themed geometric shapes (blue and gray) -->
-                <ellipse cx="1500" cy="320" rx="420" ry="160" fill="url(#blueAccent)" filter="url(#blur1)">
-                    <animate attributeName="rx" values="420;480;420" dur="16s" repeatCount="indefinite"/>
-                    <animate attributeName="ry" values="160;200;160" dur="16s" repeatCount="indefinite"/>
-                    <animate attributeName="cx" values="1500;1400;1500" dur="20s" repeatCount="indefinite"/>
-                </ellipse>
-                <ellipse cx="420" cy="900" rx="340" ry="120" fill="url(#grayAccent)" filter="url(#blur2)">
-                    <animate attributeName="cx" values="420;520;420" dur="18s" repeatCount="indefinite"/>
-                    <animate attributeName="rx" values="340;370;340" dur="15s" repeatCount="indefinite"/>
-                </ellipse>
+                <ellipse cx="1500" cy="320" rx="420" ry="160" fill="url(#blueAccent)"/>
+                <ellipse cx="420" cy="900" rx="340" ry="120" fill="url(#grayAccent)"/>
                 <!-- Subtle blue circles for depth -->
-                <circle cx="1200" cy="900" r="90" fill="#60a5fa" fill-opacity="0.07">
-                    <animate attributeName="cy" values="900;950;900" dur="13s" repeatCount="indefinite"/>
-                    <animate attributeName="r" values="90;110;90" dur="15s" repeatCount="indefinite"/>
-                </circle>
-                <circle cx="700" cy="200" r="70" fill="#3b82f6" fill-opacity="0.05">
-                    <animate attributeName="cx" values="700;800;700" dur="17s" repeatCount="indefinite"/>
-                    <animate attributeName="r" values="70;90;70" dur="14s" repeatCount="indefinite"/>
-                </circle>
+                <circle cx="1200" cy="900" r="90" fill="#60a5fa" fill-opacity="0.07"/>
+                <circle cx="700" cy="200" r="70" fill="#3b82f6" fill-opacity="0.05"/>
                 <!-- Subtle gray circle for depth -->
-                <circle cx="300" cy="300" r="110" fill="#1e293b" fill-opacity="0.07">
-                    <animate attributeName="cy" values="300;350;300" dur="19s" repeatCount="indefinite"/>
-                    <animate attributeName="r" values="110;130;110" dur="17s" repeatCount="indefinite"/>
-                </circle>
-                <!-- Animated Aurora/Wave overlays -->
-                <path id="aurora1" d="M0,700 Q600,600 1200,800 T1920,700 V1080 H0Z"
-                    fill="url(#aurora1)" filter="url(#blurAurora)" opacity="0.5">
-                    <animate attributeName="d"
-                        values="
-                            M0,700 Q600,600 1200,800 T1920,700 V1080 H0Z;
-                            M0,720 Q700,650 1300,850 T1920,720 V1080 H0Z;
-                            M0,700 Q600,600 1200,800 T1920,700 V1080 H0Z
-                        "
-                        dur="18s" repeatCount="indefinite"/>
-                    <animate attributeName="opacity"
-                        values="0.5;0.7;0.5"
-                        dur="18s" repeatCount="indefinite"/>
-                </path>
-                <path id="aurora2" d="M0,800 Q900,950 1920,850 V1080 H0Z"
-                    fill="url(#aurora2)" filter="url(#blurAurora)" opacity="0.35">
-                    <animate attributeName="d"
-                        values="
-                            M0,800 Q900,950 1920,850 V1080 H0Z;
-                            M0,820 Q1000,900 1920,870 V1080 H0Z;
-                            M0,800 Q900,950 1920,850 V1080 H0Z
-                        "
-                        dur="22s" repeatCount="indefinite"/>
-                    <animate attributeName="opacity"
-                        values="0.35;0.55;0.35"
-                        dur="22s" repeatCount="indefinite"/>
-                </path>
-                <!-- Faint animated grid overlay -->
-                <g opacity="0.07">
-                    <g>
-                        <rect x="0" y="0" width="1920" height="1080" fill="none" stroke="#60a5fa" stroke-width="1"/>
-                        <g>
-                            <g>
-                                <line x1="0" y1="180" x2="1920" y2="180" stroke="#60a5fa">
-                                    <animate attributeName="y1" values="180;200;180" dur="16s" repeatCount="indefinite"/>
-                                    <animate attributeName="y2" values="180;200;180" dur="16s" repeatCount="indefinite"/>
-                                </line>
-                                <line x1="0" y1="360" x2="1920" y2="360" stroke="#60a5fa">
-                                    <animate attributeName="y1" values="360;380;360" dur="18s" repeatCount="indefinite"/>
-                                    <animate attributeName="y2" values="360;380;360" dur="18s" repeatCount="indefinite"/>
-                                </line>
-                                <line x1="0" y1="540" x2="1920" y2="540" stroke="#60a5fa">
-                                    <animate attributeName="y1" values="540;560;540" dur="20s" repeatCount="indefinite"/>
-                                    <animate attributeName="y2" values="540;560;540" dur="20s" repeatCount="indefinite"/>
-                                </line>
-                                <line x1="0" y1="720" x2="1920" y2="720" stroke="#60a5fa">
-                                    <animate attributeName="y1" values="720;740;720" dur="22s" repeatCount="indefinite"/>
-                                    <animate attributeName="y2" values="720;740;720" dur="22s" repeatCount="indefinite"/>
-                                </line>
-                                <line x1="0" y1="900" x2="1920" y2="900" stroke="#60a5fa">
-                                    <animate attributeName="y1" values="900;920;900" dur="24s" repeatCount="indefinite"/>
-                                    <animate attributeName="y2" values="900;920;900" dur="24s" repeatCount="indefinite"/>
-                                </line>
-                            </g>
-                            <g>
-                                <line y1="0" x1="320" y2="1080" x2="320" stroke="#60a5fa">
-                                    <animate attributeName="x1" values="320;340;320" dur="17s" repeatCount="indefinite"/>
-                                    <animate attributeName="x2" values="320;340;320" dur="17s" repeatCount="indefinite"/>
-                                </line>
-                                <line y1="0" x1="640" y2="1080" x2="640" stroke="#60a5fa">
-                                    <animate attributeName="x1" values="640;660;640" dur="19s" repeatCount="indefinite"/>
-                                    <animate attributeName="x2" values="640;660;640" dur="19s" repeatCount="indefinite"/>
-                                </line>
-                                <line y1="0" x1="960" y2="1080" x2="960" stroke="#60a5fa">
-                                    <animate attributeName="x1" values="960;980;960" dur="21s" repeatCount="indefinite"/>
-                                    <animate attributeName="x2" values="960;980;960" dur="21s" repeatCount="indefinite"/>
-                                </line>
-                                <line y1="0" x1="1280" y2="1080" x2="1280" stroke="#60a5fa">
-                                    <animate attributeName="x1" values="1280;1300;1280" dur="23s" repeatCount="indefinite"/>
-                                    <animate attributeName="x2" values="1280;1300;1280" dur="23s" repeatCount="indefinite"/>
-                                </line>
-                                <line y1="0" x1="1600" y2="1080" x2="1600" stroke="#60a5fa">
-                                    <animate attributeName="x1" values="1600;1620;1600" dur="25s" repeatCount="indefinite"/>
-                                    <animate attributeName="x2" values="1600;1620;1600" dur="25s" repeatCount="indefinite"/>
-                                </line>
-                            </g>
-                        </g>
-                    </g>
-                </g>
-                <!-- Soft overlay for vignette effect -->
+                <circle cx="300" cy="300" r="110" fill="#1e293b" fill-opacity="0.07"/>
+                <!-- Soft vignette overlay -->
                 <radialGradient id="vignette" cx="50%" cy="50%" r="0.9">
                     <stop offset="70%" stop-color="white" stop-opacity="0"/>
                     <stop offset="100%" stop-color="#0a101a" stop-opacity="0.70"/>
@@ -302,7 +183,30 @@ class App():
         }
         </style>
         """)
-        self.ui.run(reload=False, show=True)
+
+        import os
+        os.environ["PYWEBVIEW_GUI"] = "qt"
+        os.environ["QTWEBENGINE_CHROMIUM_FLAGS"] = "--enable-gpu --ignore-gpu-blocklist"
+
+        # Get screen size using screeninfo
+        try:
+            from screeninfo import get_monitors
+            monitor = get_monitors()[0]
+            screen_width = monitor.width
+            screen_height = monitor.height
+        except Exception as e:
+            logger.warning(f"Could not get screen size, using default 1280x800. Error: {e}")
+            screen_width = 1280
+            screen_height = 800
+
+        self.ui.run(
+            reload=False,
+            show=True,
+            title='Kokoro TTS Generator',
+            dark=True,
+            native=True,
+            window_size=(screen_width, screen_height)
+        )
 
     def construct_ui(self):
         """

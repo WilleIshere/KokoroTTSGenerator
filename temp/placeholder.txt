@@ -1,1 +1,0 @@
-This is just a file that makes sure the folder 'temp' gets added to git
