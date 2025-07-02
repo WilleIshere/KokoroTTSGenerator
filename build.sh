@@ -29,14 +29,24 @@ else
   echo "UPX already built, skipping build."
 fi
 
-# Run PyInstaller with the required options using uv, using the built UPX
+# Limit PyInstaller memory usage
+export PYINSTALLER_MAX_CONSECUTIVE=1
+
+# Run PyInstaller with UPX for compression and --strip for smaller binaries
 uv run pyinstaller app.py \
   -n KokoroTTSGenerator \
   --noconfirm \
+  --clean \
+  --strip \
+  --collect-all "en_core_web_sm" \
   --add-data "src:src" \
   --add-data ".venv/lib/python3.12/site-packages/nicegui:nicegui" \
   --add-data ".venv/lib/python3.12/site-packages/language_data:language_data" \
   --add-data ".venv/lib/python3.12/site-packages/language_tags:language_tags" \
+  --add-data ".venv/lib/python3.12/site-packages/espeakng_loader:espeakng_loader" \
+  --add-data ".venv/lib/python3.12/site-packages/en_core_web_sm:en_core_web_sm" \
+  --add-data ".venv/lib/python3.12/site-packages/espeakng_loader-0.2.4.dist-info:espeakng_loader-0.2.4.dist-info" \
+  --add-data ".venv/lib/python3.12/site-packages/misaki:misaki" \
   --upx-dir=external/upx/src
 
 echo "Build complete. Executable is in the dist/ directory."
