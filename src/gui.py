@@ -5,7 +5,15 @@ from src.tts import Pipeline
 logger = logging.getLogger(__name__)
 
 class App():
+    """
+    Main application class for the Kokoro TTS Generator GUI.
+    Handles UI construction, user interaction, and communication with the TTS pipeline.
+    """
+
     def __init__(self):
+        """
+        Initialize the App, configure the UI theme, static file serving, and prepare UI elements.
+        """
         self.pipeline = None
         logger.info("App initialized.")
 
@@ -297,6 +305,10 @@ class App():
         self.ui.run(reload=False, show=True)
 
     def construct_ui(self):
+        """
+        Build the main user interface for the TTS generator, including all controls and dialogs.
+        """
+        logger.info("Constructing main UI.")
         ui = self.ui  # Local alias for readability
 
         # Refined card and layout classes for a modern, clean look
@@ -445,8 +457,13 @@ class App():
 
             # Attach generate logic
             self.generate_btn.on('click', self.on_generate_clicked)
+        logger.info("UI construction complete.")
 
     async def load_pipeline(self):
+        """
+        Asynchronously load the TTS pipeline, updating the UI to reflect loading state.
+        """
+        logger.info("User requested pipeline load.")
         self.load_btn.disable()
         self.pipeline_status.text = 'Pipeline Loading... (this may take up to a minute)'
         self.pipeline_status.classes('text-sm text-yellow-300 font-semibold transition-all')
@@ -468,10 +485,16 @@ class App():
         # Remove the warning label if present
         if hasattr(self, 'warning_label'):
             self.warning_label.visible = False
+        logger.info("Pipeline loaded and UI updated.")
 
     async def on_generate_clicked(self):
+        """
+        Handle the generate button click: validate input, call the TTS pipeline, and update the UI with results.
+        """
+        logger.info("Generate button clicked.")
         # Only allow if pipeline is loaded
         if not self.pipeline_loaded or not self.pipeline:
+            logger.warning("Generate attempted before pipeline loaded.")
             return
 
         # Get input values
@@ -483,6 +506,7 @@ class App():
         # Validate input
         if not text.strip():
             self.ui.notify('Please enter text to synthesize.', color='warning')
+            logger.warning("No text entered for synthesis.")
             return
 
         # Show generate dialog, reset result area
@@ -510,6 +534,7 @@ class App():
         except Exception as e:
             self.generate_dialog.close()
             self.ui.notify(f'Error during generation: {e}', color='negative')
+            logger.error(f"Error during audio generation: {e}")
             self.generate_btn.enable()
             self.set_controls_enabled(True)
             return
@@ -531,17 +556,26 @@ class App():
             self.audio_player.props(f'controls src="{url}"')
             self.audio_player.style('display:block;')
             self.download_btn.style('display:block;')
-            self.download_btn.on('click', lambda: self.ui.open(url))
+            self.download_btn.on('click', lambda: self._download_file(url, filename))
             self.close_btn.style('display:block;')
             self.close_btn.on('click', lambda: self.generate_dialog.close())
 
             self.generate_result_area.style('display:flex;')
+            logger.info(f"Audio generated successfully: {filepath}")
         else:
             self.generate_loader_html.style('display:none;')
             self.generate_dialog.close()
             self.ui.notify('No audio was generated.', color='warning')
+            logger.warning("No audio was generated.")
 
     def set_controls_enabled(self, enabled: bool):
+        """
+        Enable or disable all user controls in the UI.
+
+        Args:
+            enabled (bool): Whether to enable (True) or disable (False) the controls.
+        """
+        logger.debug(f"Setting controls enabled: {enabled}")
         # Enable/disable all settings and generate button
         for ctrl in [
             self.voice_select,
@@ -558,3 +592,26 @@ class App():
         if not enabled:
             self.preview_label.style('display:none;')
             self.audio_player.style('display:none;')
+
+    def _download_file(self, url, filename):
+        """
+        Helper to trigger browser download using a hidden anchor tag with the download attribute.
+        """
+        # Remove any previous download link if present
+        self.ui.run_javascript('''
+            var old = document.getElementById("kokoro-download-link");
+            if (old) old.remove();
+        ''')
+        # Create and click a new download link
+        self.ui.run_javascript(f'''
+            var a = document.createElement("a");
+            a.id = "kokoro-download-link";
+            a.href = "{url}";
+            a.download = "{filename}";
+            a.style.display = "none";
+            document.body.appendChild(a);
+            a.click();
+            setTimeout(function() {{
+                a.remove();
+            }}, 1000);
+        ''')
