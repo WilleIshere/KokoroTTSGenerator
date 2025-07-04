@@ -4,6 +4,7 @@ import soundfile as sf
 import numpy as np
 import uuid
 import logging
+import torch
 
 # Set up logging for this module
 logger = logging.getLogger(__name__)
