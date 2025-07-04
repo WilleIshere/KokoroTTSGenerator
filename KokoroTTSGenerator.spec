@@ -1,7 +1,7 @@
 # -*- mode: python ; coding: utf-8 -*-
 from PyInstaller.utils.hooks import collect_all
 
-datas = [('src', 'src'), ('.venv/lib/python3.12/site-packages/nicegui', 'nicegui'), ('.venv/lib/python3.12/site-packages/language_data', 'language_data'), ('.venv/lib/python3.12/site-packages/language_tags', 'language_tags'), ('.venv/lib/python3.12/site-packages/espeakng_loader', 'espeakng_loader'), ('.venv/lib/python3.12/site-packages/espeakng_loader-0.2.4.dist-info', 'espeakng_loader-0.2.4.dist-info'), ('.venv/lib/python3.12/site-packages/misaki', 'misaki')]
+datas = [('src', 'src'), ('.venv/Lib/site-packages/nicegui', 'nicegui'), ('.venv/Lib/site-packages/language_data', 'language_data'), ('.venv/Lib/site-packages/language_tags', 'language_tags'), ('.venv/Lib/site-packages/espeakng_loader', 'espeakng_loader'), ('.venv/Lib/site-packages/espeakng_loader-0.2.4.dist-info', 'espeakng_loader-0.2.4.dist-info'), ('.venv/Lib/site-packages/misaki', 'misaki')]
 binaries = []
 hiddenimports = []
 tmp_ret = collect_all('en_core_web_sm')
@@ -39,7 +39,7 @@ exe = EXE(
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
-    icon=['icon.ico'],
+    icon=[],
 )
 coll = COLLECT(
     exe,
