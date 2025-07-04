@@ -1,23 +1,17 @@
 [project]
-name = "KokoroTTS"
+name = "kokorottsgenerator"
 version = "0.1.0"
-description = "A high-quality local text-to-speech generator."
-authors = [{ name = "WilleIshere" }]
-requires-python = "==3.12.*"
+description = "Add your description here"
 readme = "README.md"
+requires-python = ">=3.12"
 dependencies = [
-    "kokoro>=0.9.4",
-    "nicegui>=2.20.0",
-    "pyinstaller>=6.14.1",
-    "soundfile>=0.13.1",
-    "spacy>=3.8.7",
+    "kokoro==0.9.4",
+    "nicegui==2.20.0",
     "pip>=25.1.1",
-    "pyqt5>=5.15.11",
-    "pywebview[qt]>=5.4",
-    "pyqtwebengine>=5.15.7",
-    "screeninfo>=0.8.1",
-    "torch>=2.7.1",
+    "pyinstaller==6.14.1",
+    "pywebview==5.4",
+    "screeninfo==0.8.1",
+    "soundfile==0.13.1",
+    "spacy>=3.8.7",
+    "torch==2.7.1",
 ]
-
-[project.optional-dependencies]
-dev = ["ruff", "black", "pytest"]
