@@ -25,6 +25,8 @@ class App():
 
         # Serve final_audio directory as static files
         from nicegui import app
+        app.native.settings['ALLOW_DOWNLOADS'] = True
+
         import os
         app.add_static_files('/final_audio', os.path.join(os.getcwd(), 'final_audio'))
 
