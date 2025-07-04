@@ -9,9 +9,11 @@
 [![Python](https://img.shields.io/badge/Python-3.12-blue.svg)](https://python.org)
 [![UV](https://img.shields.io/badge/UV-Package%20Manager-blueviolet.svg)](https://github.com/astral-sh/uv)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux-lightgrey.svg)]()
-[![Release](https://img.shields.io/badge/Release-v0.1.0-orange.svg)](https://github.com/WilleIshere/KokoroTTSGenerator/releases)
-[![Speed](https://img.shields.io/badge/Speed-Ultra%20Fast-red.svg)]()
+[![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux%20(Source)-lightgrey.svg)]()
+[![Release](https://img.shields.io/github/v/release/WilleIshere/KokoroTTSGenerator?color=orange)](https://github.com/WilleIshere/KokoroTTSGenerator/releases)
+[![Issues](https://img.shields.io/github/issues/WilleIshere/KokoroTTSGenerator)](https://github.com/WilleIshere/KokoroTTSGenerator/issues)
+[![Stars](https://img.shields.io/github/stars/WilleIshere/KokoroTTSGenerator)](https://github.com/WilleIshere/KokoroTTSGenerator/stargazers)
+[![Last Commit](https://img.shields.io/github/last-commit/WilleIshere/KokoroTTSGenerator)](https://github.com/WilleIshere/KokoroTTSGenerator/commits)
 [![Quality](https://img.shields.io/badge/Quality-High-brightgreen.svg)]()
 
 *Generate high-quality speech from text using the powerful Kokoro TTS pipeline with an intuitive web interface.*
@@ -46,15 +48,21 @@
 
 ## 🚀 Quick Start
 
-### Option 1: Using Compiled Versions (Recommended)
-1. Download the appropriate release for your platform from the [Releases page](https://github.com/WilleIshere/KokoroTTSGenerator/releases/latest)
-2. Extract the downloaded archive (if applicable)
-3. Run the application:
-   - **Windows**: Double-click the `.exe` file
-   - **Linux**: Make the AppImage executable (`chmod +x KokoroTTSGenerator.AppImage`) and run it
+### Running the Compiled Version on Windows
+
+> **Note**: Only Windows binaries are currently available. Linux builds are not yet available.
+
+**Required Dependencies**: None (everything is bundled)
+
+1. Download the Windows release from the [Releases page](https://github.com/WilleIshere/KokoroTTSGenerator/releases/latest)
+2. Extract the downloaded archive
+3. Double-click the `.exe` file to run the application
 4. Wait for the TTS pipeline to initialize on first run (may take a few minutes)
 
-### Option 2: Running from Source
+### Running from Source on Windows
+
+**Required Dependencies**: Python 3.12, UV package manager
+
 ```bash
 # Clone the repository
 git clone https://github.com/WilleIshere/KokoroTTSGenerator.git
@@ -62,7 +70,31 @@ cd KokoroTTSGenerator
 
 # Create virtual environment and install dependencies with UV
 uv venv
-source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+.venv\Scripts\activate
+
+# Install dependencies
+uv sync
+
+# Run the application
+python app.py
+```
+
+### Running from Source on Linux
+
+> **Note**: Linux builds are not yet available. You must run from source.
+
+**Required Dependencies**: Python 3.12, UV package manager
+
+```bash
+# Clone the repository
+git clone https://github.com/WilleIshere/KokoroTTSGenerator.git
+cd KokoroTTSGenerator
+
+# Create virtual environment and install dependencies with UV
+uv venv
+source .venv/bin/activate
+
+# Install dependencies
 uv sync
 
 # Run the application
@@ -82,14 +114,13 @@ python app.py
 - **Version**: 0.1.0
 - **Formats**:
   - **Windows**: Standalone executable (.exe) - no installation required
-
-  - **Linux**: AppImage (.AppImage) - runs anywhere
+  - **Linux**: Not yet available (run from source)
   - **Source**: Python package (requires Python 3.12 & UV)
 - **Size**: ~300MB (includes all dependencies and runtime)
 
 [⬇️ Download Latest Release](https://github.com/WilleIshere/KokoroTTSGenerator/releases/latest)
 
-> **Note**: For the compiled versions, no Python installation or additional dependencies are required. Everything is bundled in the executable.
+> **Note**: For the compiled Windows version, no Python installation or additional dependencies are required. Everything is bundled in the executable.
 
 ## 🎮 Usage
 
@@ -230,7 +261,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **First Run Slow**: Initial pipeline loading downloads models and may take a few minutes
 - **Memory Usage**: TTS models require significant RAM; 8GB recommended for optimal performance
 - **Antivirus Warnings**: Some antivirus software may flag compiled executables; these are false positives
-- **Linux Permissions**: On Linux, remember to make AppImage files executable before running
+- **Linux Builds**: Linux builds are not yet available; please run from source
 
 ## 🔄 Version History
 
